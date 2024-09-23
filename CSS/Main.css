@@ -19,6 +19,7 @@
 .personagemImg {
     position: absolute;
     width: 60px;
+    height: auto;
     left: calc(50% - 30px);
     bottom: 50%;
     background-color: deepskyblue;

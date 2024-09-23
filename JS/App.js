@@ -98,7 +98,7 @@ const personagem = (alturaDoJogo) => {
     let voandoParaBaixo = false
 
     const elemento = novoElemento("personagemImg", "img")
-    elemento.src = "../imgs/passaro.png"
+    elemento.src = "/IMGs/frame-1.png"
 
     const getY = () => parseInt(elemento.style.bottom.split("px")[0])
     const setY = x => elemento.style.bottom = `${x}px`
@@ -198,6 +198,7 @@ const colisaoTest = (personagem, barreiras) => {
 
 const flappyBird = () => {
     let pontos = 0
+    let dificuldade = 1
 
     const areaGame = document.querySelector("[wm-flappy]")
     const altura = areaGame.clientHeight
@@ -215,13 +216,22 @@ const flappyBird = () => {
     let jogoParado = false;  // Flag para saber se o jogo está rodando ou parado dando trabalho demais
     let temporizadorJogo;
 
+    const aumentarDificuldade = () => {
+        if (pontos % 20 === 0 && pontos > 0) {
+            dificuldade++; // Aumenta a dificuldade a cada 20 pontos
+            console.log("Dificuldade aumentada! Agora está em: " + dificuldade);
+        }
+    };
+
     const inicioDeJogo = () => {
         
         temporizadorJogo = setInterval(() => {
             if (!jogoParado) {
+                const movimentoGradual = 4 + dificuldade
                 // Atualiza as animações das barreiras e personagem
-                barreirasS.animarLoop();
+                barreirasS.animarLoop(movimentoGradual);
                 persona.animarPersonagem();
+                aumentarDificuldade()
     
                 // Testar colisão entre o personagem e as barreiras
                 if (colisaoTest(persona, barreirasS)) {
@@ -242,5 +252,5 @@ const flappyBird = () => {
     }
 }
 
-flappyBird().inicioDeJogo()
+//flappyBird().inicioDeJogo()
 

@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: deepskyblue;
+    font-family: 'Arial', sans-serif;
+}
+.ti-second {
+    width: 450px;
+    height: auto;
+    margin: auto;
+    margin-top: 50%;
+    background-color: #0D262D;
+    opacity: .6;
+    border-radius: 18px;
+}
+#tela-inicial {
+    text-align: center;
+    
+    width: 1000px;
+    height: 80%;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+#tela-inicial h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #f98e01;
+    font-weight: bolder;
+    opacity: 1;
+}
+
+#tela-inicial p {
+    font-size: 18px;
+    margin-bottom: 28px;
+}
+
+#iniciar-jogo {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: yellow;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 25px;
+}
+
+#iniciar-jogo:hover {
+    background-color: orange;
+}
+
+#jogo {
+    display: none; /* Inicialmente oculto */
+}
