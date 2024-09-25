@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flappy Bird</title>
+    <link rel="stylesheet" href="CSS/estiloIndex.css" />
+    <link rel="stylesheet" href="CSS/estilo.css" />
+    <link rel="stylesheet" href="CSS/Main.css" />
+  </head>
+
+  <body class="conteudo">
+    <div
+      id="tela-inicial"
+      style="
+        background-image: url(IMGs/updraft-chase-bg.webp);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      "
+    >
+      <div class="ti-second">
+        <h1>Updraft-Chase</h1>
+        <p>Pressione o botão abaixo para começar a jogar!</p>
+        <button id="iniciar-jogo">Iniciar Jogo</button>
+      </div>
+      <audio
+        style="display: none"
+        id="start-sound"
+        src="SOUNDs/collect-points-190037.mp3"
+      ></audio>
+      <audio
+        style="display: none"
+        id="collision-sound"
+        src="SOUNDs/colisao.wav"
+      ></audio>
+      <audio
+        style="display: none"
+        id="background-music"
+        src="SOUNDs/Paradise_Found.mp3"
+      ></audio>
+      <audio
+        style="display: none"
+        id="game-over-sound"
+        src="SOUNDs/mixkit-sad-game-over-trombone-471.wav"
+      ></audio>
+    </div>
+    <div wm-flappy id="jogo" style="display: none">
+      <div id="game-controls">
+        <button id="pause-button">
+          <img src="IMGs/pausa.png" alt="">
+          pausar
+        </button>
+        <button id="resume-button" class="hidden">Retomar</button>
+      </div>
+    </div>
+    <div id="game-over" class="game-over hidden">
+      <h1>Game Over</h1>
+      <p>Pontuação: <span id="score-display">0</span></p>
+      <p>Recorde: <span id="high-score-display">0</span></p>
+      <div class="box-buttons">
+        <button id="restart-button">Recomeçar</button>
+        <button id="reiniciar-jogo">
+          <img src="IMGs/reiniciar.png" alt="Reiniciar Jogo" />
+          Reiniciar Jogo
+        </button>
+      </div>
+    </div>
+    <script src="JS/appIndex.js"></script>
+    <script src="JS/App.js"></script>
+  </body>
+</html>

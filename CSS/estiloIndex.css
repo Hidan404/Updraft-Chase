@@ -82,9 +82,11 @@ body {
 }
 
 #restart-button {
+    border-radius: 25px;
     padding: 10px 40px;
     margin-top: 20px;
     cursor: pointer;
+    margin: 6px;
 }
 
 
@@ -105,4 +107,42 @@ body {
     padding: 10px;
     margin-left: 5px;
     cursor: pointer;
+}
+
+
+#reiniciar-jogo {
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-flex; 
+    align-items: center; 
+    cursor: pointer; 
+    margin-top: 20px; 
+    margin: 6px;
+    border-radius: 25px;
+}
+
+#reiniciar-jogo img {
+    width: 24px; 
+    height: 24px; 
+    margin-right: 8px; 
+}
+
+.box-buttons {
+    display: flex;
+
+}
+
+
+#pause-button {
+    background-color: #4CAF50;
+    color: antiquewhite;
+}
+#pause-button, #resume-button > img {
+    width: 50px;
+    height: 50px;
+    z-index: 1002;
 }

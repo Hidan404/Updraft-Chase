@@ -171,7 +171,7 @@ const sobreposicaoSouN = (elemA, elemB) => {
 };
 
 const colisaoTest = (personagem, barreiras) => {
-  return barreiras.pares.some((parBarreiras) => {
+  const colisao =  barreiras.pares.some((parBarreiras) => {
     const superior = parBarreiras.superior.elemento;
     const inferior = parBarreiras.inferior.elemento;
 
@@ -180,9 +180,17 @@ const colisaoTest = (personagem, barreiras) => {
       sobreposicaoSouN(personagem.elemento, inferior)
     );
   });
+
+  if (colisao) {
+    const collisionSound = document.getElementById("collision-sound");
+    collisionSound.play(); // Toca o som de colisão
+  }
+
+  return colisao
 };
 
 let recorde = 0;
+const bacgrounMusic = document.getElementById("background-music")
 
 const flappyBird = () => {
   let pontos = 0;
@@ -206,26 +214,47 @@ const flappyBird = () => {
 
   let jogoParado = false; // Flag para saber se o jogo está rodando ou parado dando trabalho demais
   let temporizadorJogo;
-
+  const gameOverScreen = document.getElementById("game-over");
   const mostrarGameOver = () => {
-    const gameOverScreen = document.getElementById("game-over");
+    
     const scoreDisplay = document.getElementById("score-display");
     const highScoreDisplay = document.getElementById("high-score-display");
 
     scoreDisplay.innerText = pontos;
     highScoreDisplay.innerText = Math.max(pontos, recorde);
-    recorde = Math.max(pontos, recorde); //
+    recorde = Math.max(pontos, recorde); 
+
+   
+    bacgrounMusic.pause()
+    const musicaGameOver = document.getElementById("game-over-sound")
+    
+
+
     gameOverScreen.classList.remove("hidden");
+    musicaGameOver.play()
   };
 
+  
+
+
   const aumentarDificuldade = () => {
-    if (pontos % 10 === 0 && pontos > 0) {
+    if (pontos > 5 === 0  && pontos > 0) {
       dificuldade++;
       console.log("Dificuldade aumentada! Agora está em: " + dificuldade);
+
+      barreirasS.pares.forEach((par) => {
+        const novaAbertura = Math.max(150, 250 - dificuldade * 5); // Abertura mínima de 150px
+        par.sortearAbeertura(novaAbertura);
+      });
     }
+
+
   };
 
   const inicioDeJogo = () => {
+    bacgrounMusic.loop = true
+    bacgrounMusic.play()
+
     temporizadorJogo = setInterval(() => {
       if (!pausado) {
         const movimentoGradual = 4 + dificuldade;
