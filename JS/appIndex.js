@@ -1,13 +1,16 @@
 const startGame = document.querySelectorAll('.iniciar-jogo')
+const gameOverScreen = document.getElementById("game-over");
 startGame.forEach(el => {
 el.addEventListener('click', () => {
     
     document.getElementById('tela-inicial').style.display = 'none';
     
     document.getElementById('jogo').style.display = 'block';
+    gameOverScreen.classList.add("hidden");
+    document.addEventListener('DOMContentLoaded', flappyBird().inicioDeJogo());
     
     
-    flappyBird().inicioDeJogo();
+    
 });
 });
 
