@@ -42,7 +42,7 @@ body {
     margin-bottom: 28px;
 }
 
-#iniciar-jogo {
+.iniciar-jogo {
     padding: 10px 20px;
     font-size: 18px;
     background-color: yellow;
@@ -53,7 +53,7 @@ body {
     margin-bottom: 25px;
 }
 
-#iniciar-jogo:hover {
+.iniciar-jogo:hover {
     background-color: orange;
 }
 

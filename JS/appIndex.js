@@ -1,4 +1,6 @@
-document.getElementById('iniciar-jogo').addEventListener('click', () => {
+const startGame = document.querySelectorAll('.iniciar-jogo')
+startGame.forEach(el => {
+el.addEventListener('click', () => {
     
     document.getElementById('tela-inicial').style.display = 'none';
     
@@ -7,12 +9,16 @@ document.getElementById('iniciar-jogo').addEventListener('click', () => {
     
     flappyBird().inicioDeJogo();
 });
+});
 
 
 
-const startButton = document.getElementById('iniciar-jogo');
+const startButton = document.querySelectorAll('.iniciar-jogo');
 const startSound = document.getElementById('start-sound');
 
-startButton.addEventListener('click', () => {
+startButton.forEach(el => {
+    el.addEventListener('click', () => {
     startSound.play();
 });
+
+})
