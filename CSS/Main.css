@@ -15,6 +15,7 @@
     margin: 15px;
     background-color: deepskyblue;
     overflow: hidden;
+    border-radius: 25px;
 }
 .personagemImg {
     position: absolute;
