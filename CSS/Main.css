@@ -82,4 +82,16 @@
     font-family: "Pixel";
     font-size: 60px;
     z-index: 100;
+    border-radius: 25px;
+    background-color: blue;
+    padding: 0px 10px 0px 10px;
+    box-shadow: 0 0 5px rgba(0, 162, 255, 0.9), 
+    0 0 15px rgba(0, 162, 255, 0.3), 
+    0 0 30px rgba(0, 162, 255, 0.2); 
+}
+
+.progresso:hover {
+    box-shadow: 0 0 10px rgba(0, 162, 255, 0.8), 
+    0 0 20px rgba(0, 162, 255, 0.6),
+    0 0 40px rgba(0, 162, 255, 0.5);
 }

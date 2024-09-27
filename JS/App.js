@@ -70,7 +70,7 @@ function barreiras(altura, largura, abertura, espaco, notificarPonto) {
     this.pares.forEach((par) => {
       par.setX(par.getX() - movimentoGradual);
 
-      if (par.getX() < par.getLargura()) {
+      if (par.getX() + par.getLargura() < 0) {
         par.setX(par.getX() + espaco * this.pares.length);
         par.sortearAbeertura();
       }
@@ -337,7 +337,7 @@ const flappyBird = () => {
   };
 
   const aumentarDificuldade = () => {
-    if (pontos > 5 === 0  && pontos > 0) {
+    if (pontos > 5 === 0 && pontos > 0) {
       dificuldade++;
       console.log("Dificuldade aumentada! Agora está em: " + dificuldade);
 

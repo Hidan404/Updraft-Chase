@@ -1,148 +1,204 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    background-color: deepskyblue;
-    font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: deepskyblue;
+  font-family: "Arial", sans-serif;
 }
 .ti-second {
-    width: 450px;
-    height: auto;
-    margin: auto;
-    margin-top: 50%;
-    background-color: #0D262D;
-    opacity: .6;
-    border-radius: 18px;
+  width: 450px;
+  height: auto;
+  margin: auto;
+  margin-top: 50%;
+  background-color: #0d262d;
+  opacity: 0.6;
+  border-radius: 18px;
 }
 #tela-inicial {
-    text-align: center;
-    
-    width: 1000px;
-    height: 80%;
-    padding: 20px;
-    border-radius: 15px;
+  text-align: center;
+
+  width: 1000px;
+  height: 80%;
+  padding: 20px;
+  border-radius: 15px;
+  margin: auto;
+  position: relative;
+  padding: 20px;
+  border-radius: 8px;
+
+  overflow: hidden;
 }
 
+#tela-inicial {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 162, 255, 0.6),
+    rgba(0, 162, 255, 0.1)
+  ); /* Gradiente para a borda */
+  animation: luz-caminhando 3s linear infinite;
+}
+
+@keyframes luz-caminhando {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.neon-text {
+    font-size: 58px;
+    color: #00f;
+    text-shadow: 
+      0 0 5px rgba(0, 162, 255, 0.8), 
+      0 0 10px rgba(0, 162, 255, 0.6), 
+      0 0 15px rgba(0, 162, 255, 0.4), 
+      0 0 20px rgba(0, 162, 255, 0.2); 
+    animation: neon-flicker 1.5s infinite alternate; 
+  }
+  
+  @keyframes neon-flicker {
+    0% {
+      text-shadow: 
+        0 0 5px rgba(0, 162, 255, 0.8), 
+        0 0 10px rgba(0, 162, 255, 0.6), 
+        0 0 15px rgba(0, 162, 255, 0.4), 
+        0 0 20px rgba(0, 162, 255, 0.2);
+    }
+    100% {
+      text-shadow: 
+        0 0 10px rgba(0, 162, 255, 1), 
+        0 0 20px rgba(0, 162, 255, 0.8), 
+        0 0 30px rgba(0, 162, 255, 0.6), 
+        0 0 40px rgba(0, 162, 255, 0.4);
+    }
+  }
+  
+
+
 #tela-inicial h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #f98e01;
-    font-weight: bolder;
-    opacity: 1;
+  font-size: 46px;
+  margin-bottom: 20px;
+  color: #230b7cb9;
+  font-weight: bolder;
+  opacity: 1;
 }
 
 #tela-inicial p {
-    font-size: 18px;
-    margin-bottom: 28px;
+  font-size: 18px;
+  margin-bottom: 28px;
 }
 
 .iniciar-jogo {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: yellow;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-bottom: 25px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: yellow;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 25px;
 }
 
 .iniciar-jogo:hover {
-    background-color: orange;
+  background-color: orange;
 }
 
 #jogo {
-    display: none; 
+  display: none;
 }
 
-
 .game-over {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 
 .hidden {
-    display: none; 
+  display: none;
 }
 
 #restart-button {
-    border-radius: 25px;
-    padding: 10px 40px;
-    margin-top: 20px;
-    cursor: pointer;
-    margin: 6px;
+  border-radius: 25px;
+  padding: 10px 40px;
+  margin-top: 20px;
+  cursor: pointer;
+  margin: 6px;
 }
 
-
-
-
 #game-controls {
-    position: absolute;
-    top: 25px;
-    right: 70px;
-    z-index: 1000; 
+  position: relative;
+  top: 25px;
+  right: 70px;
+  z-index: 1010;
 }
 
 .hidden {
-    display: none; 
+  display: none;
 }
 
 #game-controls button {
-    padding: 10px;
-    margin-left: 5px;
-    cursor: pointer;
+  padding: 10px;
+  margin-left: 5px;
+  cursor: pointer;
 }
 
-
 #reiniciar-jogo {
-    background-color: #4CAF50; 
-    color: white; 
-    border: none; 
-    padding: 10px 20px; 
-    text-align: center; 
-    text-decoration: none; 
-    display: inline-flex; 
-    align-items: center; 
-    cursor: pointer; 
-    margin-top: 20px; 
-    margin: 6px;
-    border-radius: 25px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 20px;
+  margin: 6px;
+  border-radius: 25px;
 }
 
 #reiniciar-jogo img {
-    width: 24px; 
-    height: 24px; 
-    margin-right: 8px; 
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
 }
 
 .box-buttons {
-    display: flex;
-
+  display: flex;
 }
-
 
 #pause-button {
-    background-color: #4CAF50;
-    color: antiquewhite;
+  background-color: #4caf50;
+  color: antiquewhite;
+  z-index: 1010;
 }
-#pause-button, #resume-button > img {
-    width: 50px;
-    height: 50px;
-    z-index: 1002;
+#resume-button {
+  background-color: #4caf50;
+  color: antiquewhite;
+  z-index: 1010;
 }
