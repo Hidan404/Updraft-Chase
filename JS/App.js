@@ -195,119 +195,14 @@ const colisaoTest = (personagem, barreiras) => {
 let recorde = 0;
 const bacgrounMusic = document.getElementById("background-music")
 
-/*const flappyBird = () => {
-  let pontos = 0;
-  let dificuldade = 1;
-  let pausado = false;
 
-  const areaGame = document.querySelector("[wm-flappy]");
-  const altura = areaGame.clientHeight;
-  const largura = areaGame.clientWidth;
-
-  const progresso = progressoGame();
-  const barreirasS = new barreiras(altura, largura, 250, 400, () =>
-    progresso.atualizarPontos(++pontos)
-  );
-  const persona = personagem(altura);
-
-  areaGame.appendChild(progresso.elemento);
-  areaGame.appendChild(persona.elemento);
-
-  barreirasS.pares.forEach((p) => areaGame.appendChild(p.elemento));
-
-  let jogoParado = false; // Flag para saber se o jogo está rodando ou parado dando trabalho demais
-  let temporizadorJogo;
-  const gameOverScreen = document.getElementById("game-over");
-  const mostrarGameOver = () => {
-    
-    const scoreDisplay = document.getElementById("score-display");
-    const highScoreDisplay = document.getElementById("high-score-display");
-
-    scoreDisplay.innerText = pontos;
-    highScoreDisplay.innerText = Math.max(pontos, recorde);
-    recorde = Math.max(pontos, recorde); 
-
-   
-    bacgrounMusic.pause()
-    const musicaGameOver = document.getElementById("game-over-sound")
-    
-
-
-    gameOverScreen.classList.remove("hidden");
-    musicaGameOver.play()
-  };
-
-  
-
-
-  const aumentarDificuldade = () => {
-    if (pontos > 5 === 0  && pontos > 0) {
-      dificuldade++;
-      console.log("Dificuldade aumentada! Agora está em: " + dificuldade);
-
-      barreirasS.pares.forEach((par) => {
-        const novaAbertura = Math.max(150, 250 - dificuldade * 5); // Abertura mínima de 150px
-        par.sortearAbeertura(novaAbertura);
-      });
-    }
-
-
-  };
-
-  const inicioDeJogo = () => {
-    bacgrounMusic.loop = true
-    bacgrounMusic.play()
-
-    temporizadorJogo = setInterval(() => {
-      if (!pausado) {
-        const movimentoGradual = 4 + dificuldade;
-        
-        barreirasS.animarLoop(movimentoGradual);
-        persona.animarPersonagem();
-        aumentarDificuldade();
-
-        
-        if (colisaoTest(persona, barreirasS)) {
-          console.log("Colisão detectada! Parando o jogo.");
-          jogoParado = true; 
-          clearInterval(temporizadorJogo); 
-          mostrarGameOver();
-        }
-      }
-    }, 20);
-  };
-
-  
-  const pausarJogo = () => {
-    pausado = true; 
-    document.getElementById("pause-button").classList.add("hidden"); 
-    document.getElementById("resume-button").classList.remove("hidden"); 
-  };
-
-  
-  const retomarJogo = () => {
-    pausado = false; 
-    document.getElementById("pause-button").classList.remove("hidden"); 
-    document.getElementById("resume-button").classList.add("hidden"); 
-  };
-
-  
-  document.getElementById("pause-button").onclick = pausarJogo;
-  document.getElementById("resume-button").onclick = retomarJogo;
-
-  document.getElementById("restart-button").onclick = () => {
-    location.reload();
-  };
-
-  return {
-    inicioDeJogo,
-  };
-};*/
 
 const flappyBird = () => {
   let pontos = 0;
   let dificuldade = 1;
   let pausado = false;
+  const pausarButton = document.getElementById("pause-button")
+  const retomarButton = document.getElementById("resume-button")
 
   const areaGame = document.querySelector("[wm-flappy]");
   const altura = areaGame.clientHeight;
@@ -367,6 +262,8 @@ const flappyBird = () => {
     // Adiciona elementos ao DOM
     areaGame.appendChild(progresso.elemento);
     areaGame.appendChild(persona.elemento);
+    areaGame.appendChild(pausarButton)
+    areaGame.appendChild(retomarButton)
     barreirasS.pares.forEach((p) => areaGame.appendChild(p.elemento));
 
     const restartButton = document.getElementById("restart-button");
@@ -394,18 +291,20 @@ const flappyBird = () => {
     }, 20);
   };
 
-  const pausarJogo = () => {
-    pausado = true; 
-    document.getElementById("pause-button").classList.add("hidden"); 
-    document.getElementById("resume-button").classList.remove("hidden"); 
-  };
-
   const retomarJogo = () => {
     pausado = false; 
     document.getElementById("pause-button").classList.remove("hidden"); 
     document.getElementById("resume-button").classList.add("hidden"); 
   };
 
+ const pausarJogo = () => {
+    pausado = true; 
+    document.getElementById("pause-button").classList.add("hidden"); 
+    document.getElementById("resume-button").classList.remove("hidden"); 
+  };
+
+  
+  
   // Inicia o jogo quando o botão de reiniciar é clicado
   document.getElementById("reiniciar-jogo").onclick = () => {
     inicioDeJogo(); // Reinicia o jogo sem recarregar a página

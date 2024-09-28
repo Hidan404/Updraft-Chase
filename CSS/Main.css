@@ -95,3 +95,7 @@
     0 0 20px rgba(0, 162, 255, 0.6),
     0 0 40px rgba(0, 162, 255, 0.5);
 }
+
+.hidden {
+    display: none;
+  }

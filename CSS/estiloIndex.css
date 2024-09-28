@@ -193,12 +193,29 @@ body {
 }
 
 #pause-button {
+  position: absolute;
   background-color: #4caf50;
   color: antiquewhite;
   z-index: 1010;
+  top: 22px;
+  right: 90px;
+  border-radius: 12px;
+}
+
+#pause-button img {
+  width: 38px;
+  height: 30px;
 }
 #resume-button {
+  position: absolute;
   background-color: #4caf50;
   color: antiquewhite;
   z-index: 1010;
+  top: 22px;
+  right: 90px;
+}
+
+#resume-button img {
+  width: 38px;
+  height: 30px;
 }
