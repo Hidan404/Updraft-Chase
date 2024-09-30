@@ -65,7 +65,7 @@ function barreiras(altura, largura, abertura, espaco, notificarPonto) {
     parDeBarreiras(altura, abertura, largura + espaco * 3),
   ];
 
-  const movimentoGradual = 4;
+  const movimentoGradual = 3;
   this.animarLoop = () => {
     this.pares.forEach((par) => {
       par.setX(par.getX() - movimentoGradual);
@@ -218,6 +218,9 @@ const flappyBird = () => {
   const gameOverScreen = document.getElementById("game-over");
 
   const mostrarGameOver = () => {
+    pausado =true
+    
+
     const scoreDisplay = document.getElementById("score-display");
     const highScoreDisplay = document.getElementById("high-score-display");
 
@@ -275,7 +278,7 @@ const flappyBird = () => {
 
     temporizadorJogo = setInterval(() => {
       if (!pausado) {
-        const movimentoGradual = 4 + dificuldade;
+        const movimentoGradual = 1 + dificuldade;
         
         barreirasS.animarLoop(movimentoGradual);
         persona.animarPersonagem();
@@ -285,6 +288,7 @@ const flappyBird = () => {
           console.log("Colisão detectada! Parando o jogo.");
           jogoParado = true; 
           clearInterval(temporizadorJogo); 
+          
           mostrarGameOver();
         }
       }
