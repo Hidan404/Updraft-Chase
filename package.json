@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  },
+  "scripts": {
+    "build": "parcel build Updraft-chase.html",
+    "start": "parcel serve Updraft-chase.html"
+}
+
+}
